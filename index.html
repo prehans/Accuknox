@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive UI Grid</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+        .grid-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .sentence {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="grid-container">
+    <div class="grid-item">
+      <button onclick="toggleBold(1)">Bold</button>
+      <button onclick="toggleItalic(1)">Italic</button>
+      <button onclick="toggleUnderline(1)">Underline</button>
+      <input type="number" id="input-font-size-1" onchange="changeFontSize(1)" value="16">
+      <input type="color" id="input-color-1" onchange="changeColor(1)" value="#000000">
+    </div>
+    <div class="grid-item">
+      <p class="sentence" id="sentence1">He's not the sharpest knife in the drawer.</p>
+    </div>
+    <div class="grid-item">
+      <button onclick="toggleBold(2)">Bold</button>
+      <button onclick="toggleItalic(2)">Italic</button>
+      <button onclick="toggleUnderline(2)">Underline</button>
+      <input type="number" id="input-font-size-2" onchange="changeFontSize(2)" value="16">
+      <input type="color" id="input-color-2" onchange="changeColor(2)" value="#000000">
+    </div>
+    <div class="grid-item">
+      <p class="sentence" id="sentence2">The big building was blazing with lights.</p>
+    </div>
+    <div class="grid-item">
+      <button onclick="toggleBold(3)">Bold</button>
+      <button onclick="toggleItalic(3)">Italic</button>
+      <button onclick="toggleUnderline(3)">Underline</button>
+      <input type="number" id="input-font-size-3" onchange="changeFontSize(3)" value="16">
+      <input type="color" id="input-color-3" onchange="changeColor(3)" value="#000000">
+    </div>
+    <div class="grid-item">
+      <p class="sentence" id="sentence3">Now you must answer some big questions.</p>
+    </div>
+    <div class="grid-item">
+      <button onclick="toggleBold(4)">Bold</button>
+      <button onclick="toggleItalic(4)">Italic</button>
+      <button onclick="toggleUnderline(4)">Underline</button>
+      <input type="number" id="input-font-size-4" onchange="changeFontSize(4)" value="16">
+      <input type="color" id="input-color-4" onchange="changeColor(4)" value="#000000">
+    </div>
+    <div class="grid-item">
+      <p class="sentence" id="sentence4">Get Your Act Together.</p>
+    </div>
+  </div>
+
+
+<script>
+    function toggleBold(id) {
+        document.getElementById(`sentence${id}`).style.fontWeight = document.getElementById(`sentence${id}`).style.fontWeight === 'bold' ? 'normal' : 'bold';
+    }
+
+    function toggleItalic(id) {
+        document.getElementById(`sentence${id}`).style.fontStyle = document.getElementById(`sentence${id}`).style.fontStyle === 'italic' ? 'normal' : 'italic';
+    }
+
+    function toggleUnderline(id) {
+        document.getElementById(`sentence${id}`).style.textDecoration = document.getElementById(`sentence${id}`).style.textDecoration === 'underline' ? 'none' : 'underline';
+    }
+
+    function changeFontSize(id) {
+
+        let fontSize = document.getElementById(`input-font-size-${id}`).value + "px";
+        document.getElementById(`sentence${id}`).style.fontSize = fontSize;
+    }
+
+    function changeColor(id) {
+        let color = document.getElementById(`input-color-${id}`).value;
+        document.getElementById(`sentence${id}`).style.color = color;
+    }
+</script>
+<script src="script.js"></script>
+</body>
+</html>
+
